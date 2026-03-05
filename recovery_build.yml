@@ -1,0 +1,38 @@
+name: TWRP Recovery Build
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Maximize Build Space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-android: 'true'
+          remove-dotnet: 'true'
+          remove-haskell: 'true'
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install bc bison build-essential curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libelf-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync wget openjdk-17-jdk python3 python-is-python3 -y
+
+      - name: Sync and Build
+        run: |
+          mkdir ~/bin && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
+          export PATH="$HOME/bin:$PATH"
+          mkdir twrp && cd twrp
+          repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1 --depth=1
+          repo sync -j8 --force-sync
+          git clone --depth=1 https://github.com/Nitorac/android_device_samsung_a54x device/samsung/a54x
+          . build/envsetup.sh
+          lunch twrp_a54x-eng
+          make recoveryimage -j$(nproc)
+
+      - name: Upload Recovery
+        uses: actions/upload-artifact@v4
+        with:
+          name: TWRP-A54-File
+          path: |
+            twrp/out/target/product/a54x/recovery.img
+            twrp/out/target/product/a54x/recovery.tar
