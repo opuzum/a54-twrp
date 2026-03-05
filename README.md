@@ -1,3 +1,11 @@
 # a54-twrp
-TWRP Image for a54 (untested)
-Model NumberRegionNoteSM-A546BGlobal / EuropeThe primary development model.SM-A546EAsia / Middle East / OmanYour model. Fully compatible.SM-A5460China / Hong KongCompatible, but might have different bootloader locks.SM-A546SSouth Korea (Quantum 4)Generally compatible.SM-A546U / U1USA (Carrier / Unlocked)Warning: Bootloaders are usually permanently locked. TWRP cannot be flashed.SM-A546V / WVerizon / CanadaLikely locked bootloaders; check "OEM Unlocking" in settings.
+Untested TWRP Image for the Samsung Galaxy a54 Device
+Model Number,Region,Chipset,Bootloader Status
+SM-A546B,Global / Europe,Exynos 1380,✅ Unlockable
+SM-A546E,Asia / Middle East,Exynos 1380,✅ Unlockable
+SM-A5460,China / Hong Kong,Exynos 1380,✅ Unlockable
+SM-A546S,South Korea (Quantum 4),Exynos 1380,✅ Unlockable
+SM-A546M,Latin America,Exynos 1380,✅ Unlockable
+SM-A546U / U1,USA (Carrier / Unlocked),Exynos 1380,❌ Locked (No TWRP)
+SM-A546W,Canada,Exynos 1380,❌ Locked (No TWRP)
+SM-A546V,Verizon USA,Exynos 1380,❌ Locked (No TWRP)
