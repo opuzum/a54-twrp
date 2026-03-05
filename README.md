@@ -7,7 +7,7 @@ Here is that information formatted as a clean, professional Markdown table ready
 | Model Number | Region | Chipset | Bootloader Status |
 | --- | --- | --- | --- |
 | **SM-A546B** | Global / Europe | Exynos 1380 | ✅ Unlockable |
-| **SM-A546E** | Asia / Middle East (Oman) | Exynos 1380 | ✅ Unlockable |
+| **SM-A546E** | Asia / Middle East | Exynos 1380 | ✅ Unlockable |
 | **SM-A5460** | China / Hong Kong | Exynos 1380 | ✅ Unlockable |
 | **SM-A546S** | South Korea (Quantum 4) | Exynos 1380 | ✅ Unlockable |
 | **SM-A546M** | Latin America | Exynos 1380 | ✅ Unlockable |
